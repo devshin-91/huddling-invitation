@@ -10,6 +10,7 @@ import Button from "@/components/Button";
 import InvitationContent from "@/components/InvitationContent";
 import SuccessIcon from "@/components/SuccessIcon";
 import CopyLinkField from "@/components/CopyLinkField";
+import { mockInvitation } from "@/lib/mock";
 
 type Draft = {
   title: string;
@@ -76,8 +77,9 @@ export default function CreateForm() {
   const canPublish = Object.values(draft).every((value) => value.trim() !== "");
 
   function handlePublish() {
-    // TODO: Supabase 연결 후 여기서 초대장을 저장한다. 지금은 ID만 만든다.
-    setPublishedId(crypto.randomUUID());
+    // TODO: Supabase 연결 후 여기서 초대장을 저장하고 crypto.randomUUID()로 만든 ID를 쓴다.
+    // 지금은 화면 흐름 확인용으로 가짜 데이터(demo) 초대장으로 연결한다.
+    setPublishedId(mockInvitation.id);
   }
 
   return (

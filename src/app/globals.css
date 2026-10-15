@@ -55,7 +55,7 @@
   --color-border-strong: var(--color-neutral-600);
   --color-border-accent: var(--color-blue-800);
   --color-border-on-dark: var(--color-white-20);
-  --color-action-primary: var(--color-indigo-500);
+  --color-action-primary: #b4233c; /* 포인트 색: 연말 송년회 분위기의 따뜻한 버건디 (흰 글자 대비 6.47:1) */
   --color-action-secondary: var(--color-blue-500);
   --color-action-on-primary: var(--color-neutral-0);
   --color-action-hover-overlay: #1f3dbcb3; /* blue-800, 70%. Figma 설명: 20% 투명도로 덮어서 사용 */

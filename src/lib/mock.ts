@@ -19,10 +19,14 @@ export type Rsvp = {
 export const mockInvitation: Invitation = {
   // 확인하기 쉽게 "demo"를 쓴다 (/i/demo, /i/demo/responses). 실제 초대장은 crypto.randomUUID()로 만든다
   id: "demo",
-  title: "허들링 클럽 2번째\n오프라인 밋업",
-  datetime: "2026년 11월 14일 (토) 09:00",
-  location: "세종 남극 기지",
-  body: "안녕하세요, 허들링 클럽입니다.\n두 번째 오프라인 밋업에 초대합니다.\n\n따뜻한 옷차림으로 와주세요!",
+  title: "허들링 클럽\n연말 네트워킹",
+  datetime: "2026년 12월 19일 (토) 18:00",
+  location: "서울 성수동",
+  body:
+    "한 해 동안 함께해 준\n허들링 클럽 3기 멤버와 퍼디·버디 여러분을\n연말 네트워킹에 초대합니다.\n\n" +
+    "올해의 이야기를 나누고\n서로에게 수고했다는 인사를 건네는\n따뜻하고 편안한 송년회를 준비했어요.\n\n" +
+    "부담 없이 오셔서\n한 해의 마무리를 함께해 주세요.\n\n" +
+    "현장에서 반갑게 맞이할게요.",
 };
 
 export const mockRsvps: Rsvp[] = [
