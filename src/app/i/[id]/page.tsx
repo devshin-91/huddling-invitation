@@ -2,13 +2,13 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import InvitationContent from "@/components/InvitationContent";
 import RSVPCard from "@/components/RSVPCard";
-import { mockInvitation } from "@/lib/mock";
+import { getMockInvitation } from "@/lib/mock";
 
 // 주소의 [id]로 초대장을 찾아 보여준다. 지금은 가짜 데이터(mock)에서 찾는다.
 async function Invitation({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   // TODO: Supabase 연결 후 DB에서 찾는다
-  const invitation = id === mockInvitation.id ? mockInvitation : null;
+  const invitation = getMockInvitation(id);
   if (!invitation) notFound();
 
   return (

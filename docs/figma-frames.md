@@ -9,4 +9,5 @@ URL은 Figma에서 프레임을 선택한 뒤 `우클릭 → Copy link to select
 | `/create` (발행 완료) | 링크 공유 | https://www.figma.com/design/IQ4da39cbXT4R8OGs7VEw7/?node-id=2168-910 |
 | `/i/[id]` | 초대장 보기·응답 폼 | https://www.figma.com/design/IQ4da39cbXT4R8OGs7VEw7/?node-id=2168-923 |
 | `/i/[id]` (제출 완료) | 응답 완료 (RSVPCard state=done) | https://www.figma.com/design/IQ4da39cbXT4R8OGs7VEw7/?node-id=2168-1046 |
-| `/i/[id]/responses` | 응답 현황 | |
+| `/i/[id]/responses` | 응답 현황 | https://www.figma.com/design/IQ4da39cbXT4R8OGs7VEw7/?node-id=2168-871 |
+| `/i/[id]/responses` (응답 0건) | 응답 현황 빈 상태 | https://www.figma.com/design/IQ4da39cbXT4R8OGs7VEw7/?node-id=2168-952 |

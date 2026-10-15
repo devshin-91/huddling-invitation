@@ -17,7 +17,8 @@ export type Rsvp = {
 };
 
 export const mockInvitation: Invitation = {
-  id: "3f9c2a7e-8b1d-4e6a-9c35-7d2f0b8e41a6",
+  // 확인하기 쉽게 "demo"를 쓴다 (/i/demo, /i/demo/responses). 실제 초대장은 crypto.randomUUID()로 만든다
+  id: "demo",
   title: "허들링 클럽 2번째\n오프라인 밋업",
   datetime: "2026년 11월 14일 (토) 09:00",
   location: "세종 남극 기지",
@@ -47,3 +48,13 @@ export const mockRsvps: Rsvp[] = [
     companions: 0,
   },
 ];
+
+// ID로 초대장 찾기. 없으면 null
+export function getMockInvitation(id: string): Invitation | null {
+  return id === mockInvitation.id ? mockInvitation : null;
+}
+
+// 초대장 ID로 응답 목록 찾기
+export function getMockRsvps(invitationId: string): Rsvp[] {
+  return mockRsvps.filter((rsvp) => rsvp.invitationId === invitationId);
+}
