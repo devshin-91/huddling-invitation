@@ -7,9 +7,7 @@ import Textarea from "@/components/Textarea";
 import Input from "@/components/Input";
 import Label from "@/components/Label";
 import Button from "@/components/Button";
-import InvitationCover from "@/components/InvitationCover";
-import Image from "@/components/Image";
-import InfoRow from "@/components/InfoRow";
+import InvitationContent from "@/components/InvitationContent";
 import SuccessIcon from "@/components/SuccessIcon";
 import CopyLinkField from "@/components/CopyLinkField";
 
@@ -29,19 +27,7 @@ function limitLines(value: string, max: number) {
 function Preview({ draft }: { draft: Draft }) {
   return (
     <div className="h-480 overflow-y-auto rounded-control border border-border-subtle">
-      <InvitationCover title={draft.title} date={draft.datetime} location={draft.location} />
-      <div className="flex flex-col items-center gap-stack-md bg-surface-default px-page-horizontal py-cover-inset">
-        <Image type="flag" alt="" />
-        <p className="w-full whitespace-pre-wrap break-words text-center text-body-compact text-text-primary">
-          {draft.body}
-        </p>
-      </div>
-      <div className="bg-surface-default px-page-horizontal pb-section-lg pt-stack-lg">
-        <div className="flex flex-col gap-control-compact rounded-card bg-surface-subtle p-page-horizontal">
-          <InfoRow label="일시" value={draft.datetime} />
-          <InfoRow label="장소" value={draft.location} />
-        </div>
-      </div>
+      <InvitationContent {...draft} />
     </div>
   );
 }

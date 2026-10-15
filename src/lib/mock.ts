@@ -3,7 +3,7 @@
 export type Invitation = {
   id: string; // 추측하기 어려운 고유 ID (crypto.randomUUID() 형식)
   title: string;
-  datetime: string; // 일시 (ISO 형식, 한국 시간)
+  datetime: string; // 일시. /create에서 입력한 글자 그대로 보여준다
   location: string; // 주소를 글자로만 표시
   body: string; // 본문. 줄바꿈 그대로 보여준다
 };
@@ -19,7 +19,7 @@ export type Rsvp = {
 export const mockInvitation: Invitation = {
   id: "3f9c2a7e-8b1d-4e6a-9c35-7d2f0b8e41a6",
   title: "허들링 클럽 2번째\n오프라인 밋업",
-  datetime: "2026-11-14T09:00:00+09:00",
+  datetime: "2026년 11월 14일 (토) 09:00",
   location: "세종 남극 기지",
   body: "안녕하세요, 허들링 클럽입니다.\n두 번째 오프라인 밋업에 초대합니다.\n\n따뜻한 옷차림으로 와주세요!",
 };
