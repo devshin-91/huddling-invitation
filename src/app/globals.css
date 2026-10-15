@@ -1,19 +1,167 @@
+/* 글꼴: Pretendard (CDN). 다른 @import보다 먼저 와야 한다. */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
 @import "tailwindcss";
 @source not "../../.claude";
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/*
+ * 디자인 토큰 — Figma "Tokens" 섹션의 변수(Primitives / Semantic)에서 가져옴.
+ * 화면 코드에서는 가능하면 Semantic 이름(bg-surface-default, text-text-primary 등)을 쓴다.
+ */
+@theme {
+  /* Tailwind 기본 색상·글자 크기·모서리 값은 끄고, Figma 토큰만 쓴다 */
+  --color-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+
+  /* ── 글꼴 ── */
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+
+  /* ── 색상: Primitives ── */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f9fafb;
+  --color-neutral-100: #f3f4f6;
+  --color-neutral-150: #e7e7e8;
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-500: #a0a2a3;
+  --color-neutral-600: #66707a;
+  --color-neutral-700: #6b7280;
+  --color-neutral-800: #5e5e5e;
+  --color-neutral-900: #1f2937;
+  --color-neutral-950: #131313;
+  --color-neutral-1000: #000000;
+  --color-white-20: #ffffff33;
+  --color-blue-50: #dceafe;
+  --color-blue-300: #74aafb;
+  --color-blue-500: #297eff;
+  --color-blue-800: #1f3dbc;
+  --color-blue-900: #00378a;
+  --color-indigo-500: #536dfe;
+  --color-red-600: #d90000;
+
+  /* ── 색상: Semantic ── */
+  --color-background-default: var(--color-neutral-0);
+  --color-background-subtle: var(--color-neutral-50);
+  --color-surface-default: var(--color-neutral-0);
+  --color-surface-subtle: var(--color-neutral-100);
+  --color-surface-inverse: var(--color-neutral-900);
+  --color-text-primary: var(--color-neutral-950);
+  --color-text-strong: var(--color-neutral-1000);
+  --color-text-secondary: var(--color-neutral-700);
+  --color-text-tertiary: var(--color-neutral-600);
+  --color-text-disabled: var(--color-neutral-500);
+  --color-text-inverse: var(--color-neutral-0);
+  --color-border-subtle: var(--color-neutral-150);
+  --color-border-default: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-600);
+  --color-border-accent: var(--color-blue-800);
+  --color-border-on-dark: var(--color-white-20);
+  --color-action-primary: var(--color-indigo-500);
+  --color-action-secondary: var(--color-blue-500);
+  --color-action-on-primary: var(--color-neutral-0);
+  --color-action-hover-overlay: #1f3dbcb3; /* blue-800, 70%. Figma 설명: 20% 투명도로 덮어서 사용 */
+  --color-info-subtle: var(--color-blue-50);
+  --color-info-soft: var(--color-blue-300);
+  --color-info-default: var(--color-blue-500);
+  --color-info-strong: var(--color-blue-900);
+  --color-feedback-error: var(--color-red-600);
+  /* 초대장 커버 배경 그라데이션 (Figma: color/cover-gradient/preserved-3, -4) */
+  --color-cover-gradient-from: #050510;
+  --color-cover-gradient-to: #656f79;
+
+  /*
+   * ── 간격 ──
+   * 숫자 1 = 1px. Figma 숫자를 그대로 쓴다. 예) p-16 = 16px, gap-8 = 8px
+   * Figma 간격 단계: 0 2 4 5 6 8 10 12 16 20 24 28 32 40 60 80 120
+   */
+  --spacing: 1px;
+
+  /* 간격: Semantic (예: px-page-horizontal, gap-stack-md) */
+  --spacing-page-horizontal: 20px;
+  --spacing-section: 32px;
+  --spacing-section-lg: 40px;
+  --spacing-section-xl: 60px;
+  --spacing-stack-xl: 28px;
+  --spacing-stack-lg: 24px;
+  --spacing-stack-md: 16px;
+  --spacing-stack-sm: 12px;
+  --spacing-inline-md: 8px;
+  --spacing-inline-compact: 6px;
+  --spacing-inline-sm: 4px;
+  --spacing-inline-xs: 2px;
+  --spacing-control-x: 12px;
+  --spacing-control-y: 8px;
+  --spacing-control-compact: 10px;
+  --spacing-compact-detail: 5px;
+  --spacing-cover-inset: 80px;
+  --spacing-cover-inset-compact: 78px;
+
+  /* ── 모서리 둥글기 ── (rounded-none, rounded-full은 Tailwind 기본으로 쓸 수 있음) */
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-20: 20px;
+  --radius-button: 6px;
+  --radius-control: 8px;
+  --radius-media: 12px;
+  --radius-scaled-media: 16.8px;
+  --radius-card: 20px;
+  --radius-cover: 32px;
+  --radius-pill: 999px;
+
+  /* ── 굵기 ── (font-medium, font-semibold, font-bold, font-extrabold는 Tailwind 기본) */
+  --font-weight-regular: 400;
+
+  /*
+   * ── 텍스트 스타일 (Typography) ──
+   * 클래스 하나로 글자 크기 + 굵기 + 행간이 한 번에 적용된다.
+   * 예) <h1 className="text-display-lg">
+   */
+  --text-display-lg: 26px;
+  --text-display-lg--font-weight: 800;
+  --text-display-lg--line-height: 1.4;
+
+  --text-title-lg: 25px;
+  --text-title-lg--font-weight: 600;
+  --text-title-lg--line-height: 1.4;
+
+  --text-heading-lg: 20px;
+  --text-heading-lg--font-weight: 700;
+  --text-heading-lg--line-height: 1.4;
+
+  --text-heading-md: 18px;
+  --text-heading-md--font-weight: 600;
+  --text-heading-md--line-height: 1.4;
+
+  --text-body-lg: 16px;
+  --text-body-lg--font-weight: 400;
+  --text-body-lg--line-height: 1.5;
+
+  --text-body-compact: 15px;
+  --text-body-compact--font-weight: 400;
+  --text-body-compact--line-height: 1.5;
+
+  --text-body-md: 14px;
+  --text-body-md--font-weight: 400;
+  --text-body-md--line-height: 1.5;
+
+  --text-caption-md: 12px;
+  --text-caption-md--font-weight: 400;
+  --text-caption-md--line-height: 1.5;
+
+  --text-caption-sm: 12px;
+  --text-caption-sm--font-weight: 500;
+  --text-caption-sm--line-height: 1.6;
+
+  --text-label-lg: 16px;
+  --text-label-lg--font-weight: 600;
+  --text-label-lg--line-height: 1.4;
+
+  --text-label-md: 14px;
+  --text-label-md--font-weight: 500;
+  --text-label-md--line-height: 1.4;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background-default);
+  color: var(--color-text-primary);
 }
