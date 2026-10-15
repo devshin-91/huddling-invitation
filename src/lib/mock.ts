@@ -49,9 +49,20 @@ export const mockRsvps: Rsvp[] = [
   },
 ];
 
+// 응답이 0건인 초대장 (응답 현황 빈 화면 확인용: /i/empty/responses)
+export const mockEmptyInvitation: Invitation = {
+  id: "empty",
+  title: "허들링 클럽\n연말 송년회",
+  datetime: "2026년 12월 19일 (토) 18:00",
+  location: "세종 남극 기지 식당",
+  body: "한 해 동안 함께해 주셔서 고마워요.\n따뜻한 저녁 함께해요!",
+};
+
+const mockInvitations = [mockInvitation, mockEmptyInvitation];
+
 // ID로 초대장 찾기. 없으면 null
 export function getMockInvitation(id: string): Invitation | null {
-  return id === mockInvitation.id ? mockInvitation : null;
+  return mockInvitations.find((invitation) => invitation.id === id) ?? null;
 }
 
 // 초대장 ID로 응답 목록 찾기
